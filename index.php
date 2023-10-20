@@ -38,7 +38,7 @@
                                     My Account
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-primary">
-                                    <li> <a class="dropdown-item" role="button" data-bs-toggle="collapse" data-bs-target="#signInForm" aria-expanded="false" aria-controls="signInForm">
+                                    <li> <a class="dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#signInForm" aria-expanded="false" aria-controls="signInForm">
                                             Sign In
                                         </a>
                                     </li>
@@ -60,6 +60,30 @@
 
 
         <!-- Sign in collapsed FORM -->
+        <div class="modal fade" id="signInForm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Please, enter your credentials to sign in!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-secondary">Sign In</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
 
