@@ -33,33 +33,88 @@
                     </div>
                     <div class="offcanvas-body text-bg-light">
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                            <!-- <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li> -->
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     My Account
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-primary">
-                                    <li><a class="dropdown-item" href="#">Sign In</a></li>
+                                    <li> <a class="dropdown-item" role="button" data-bs-toggle="collapse" data-bs-target="#signInForm" aria-expanded="false" aria-controls="signInForm">
+                                            Sign In
+                                        </a>
+                                        <div id="signInForm" class="accordion-collapse collapse">
+                                            <div class="form-floating mb-3">
+                                                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                                                <label for="floatingInput">Email address</label>
+                                            </div>
+                                            <div class="form-floating">
+                                                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                                                <label for="floatingPassword">Password</label>
+                                            </div>
+                                        </div>
+                                    </li>
                                     <li>
                                         <hr class="dropdown-divider">
                                     </li>
-                                    <li><a class="dropdown-item" href="#">Register</a></li>
+                                    <li><a class="dropdown-item" role="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Register</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="#">Contact Us</a>
                             </li>
                         </ul>
-                        <!-- <form class="d-flex mt-3" role="search">
-                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                            <button class="btn btn-success" type="submit">Search</button>
-                        </form> -->
                     </div>
                 </div>
             </div>
         </nav>
+
+
+
+        <!-- Sign in collapsed FORM -->
+
+
+
+
+
+
+
+        <!-- Register Modal FORM -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Please, register with us!</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Enter name">
+                            <label for="floatingInput">Given Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingInput" placeholder="Enter family name">
+                            <label for="floatingInput">Family Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="date" class="form-control" id="floatingInput" placeholder="Enter family name">
+                            <label for="floatingInput">Date of birth</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="display">
             <div class="row">
                 <div class="col-md-1 bg-secondary">
@@ -220,3 +275,10 @@
 </body>
 
 </html>
+
+<!-- Code for search bar -->
+
+<!-- <form class="d-flex mt-3" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </form> -->
