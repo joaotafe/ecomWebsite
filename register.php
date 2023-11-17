@@ -64,7 +64,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $errPassword = "Password must not be blank";
     $validData = false;
   }
-
   if ($validData) {
     include("add_customer.php");
     exit();
@@ -129,7 +128,7 @@ function checkInput($inputData)
           <!-- Side navigation items can be added here if needed -->
         </div>
         <div class="col-md-6 text-center">
-          <!-- Display of products can be added here -->
+          <!-- Register form Display -->
           <h1>Registration Form</h1>
           <form method="POST" action="">
             <div class="form-floating md-3">
