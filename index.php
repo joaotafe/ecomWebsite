@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 include "cart.php";
 ?>
 <!DOCTYPE html>
@@ -89,8 +89,8 @@ include "cart.php";
                 </div>
             </div>
         </div>
-        <?php include "fetch_record.php"; ?>
 
+        
         <div class="display">
             <div class="row">
                 <div class="col-md-1 bg-primary-subtle">
@@ -101,9 +101,16 @@ include "cart.php";
                     <!-- DISPLAY OF RECORDS -->
                     <div class="row">
                         <?php
-                        $records = fetchRecords();
-                        if (count($records) > 0) {
-                            foreach ($records as $record) {
+                        //Connect to db
+                        require_once("recordplayerdb_conn.php");
+
+                        // SQL query to fetch record details
+                        $sql = "SELECT recordID, title, artist, secondHand, price, recordCover FROM record";
+                        $result = $mysqli->query($sql);
+
+                        if ($result && $result->num_rows > 0) {
+                            // Output data of each row
+                            while ($record = $result->fetch_assoc()) {
                                 echo '<div class="col-md-3">';
                                 echo '<div class="flip-card">';
                                 echo '<div class="flip-card-inner">';
@@ -129,7 +136,6 @@ include "cart.php";
                                 echo '</form>';
 
                                 echo '</div>';
-
                                 echo '</div>';
                                 echo '</div>';
                                 echo '</div>';
@@ -137,11 +143,15 @@ include "cart.php";
                         } else {
                             echo '<div class="col-12"><p>No records found.</p></div>';
                         }
+
+                        // Close connection
+                        $mysqli->close();
                         ?>
                     </div>
                 </div>
             </div>
         </div>
+
 
         <!-- CART WINDOW IS OFF CANVAS -->
         <div class="position-absolute top-50 start-0 translate-middle-y">
@@ -157,31 +167,33 @@ include "cart.php";
             <div class="offcanvas-body">
                 <?php
                 // Assuming the ShoppingCart class has already been included and session started
-                if (!isset($_SESSION['shopping_cart'])) {
-                    $_SESSION['shopping_cart'] = new ShoppingCart();
-                }
+                // if (!isset($_SESSION['shopping_cart'])) {
+                //     $_SESSION['shopping_cart'] = new ShoppingCart();
+                // }else{
+                //     $_SESSION['shopping_cart'] = "";
+                // }
 
-                // Check if the shopping cart has items
-                $cart = $_SESSION['shopping_cart'];
+                // // Check if the shopping cart has items
+                // $cart = $_SESSION['shopping_cart'];
 
-                // Retrieve items from the cart
-                $items = $cart->getItems();
-                if (!$cart->isEmpty()) {
-                    echo '<ul>';
-                    foreach ($items as $item) {
-                        $product = $item['product']; // $product is an instance of Product
-                        echo '<li>';
-                        echo 'Title: ' . htmlspecialchars($product->getTitle()) . '<br>';
-                        echo 'Quantity: ' . htmlspecialchars($product->getQty()) . '<br>';
-                        echo 'Price per item: $' . htmlspecialchars($product->getPrice()) . '<br>';
-                        echo 'Total cost for this item: $' . htmlspecialchars($product->get_product_cost()) . '<br>';
-                        echo '</li>';
-                    }
-                    echo '</ul>';
-                    echo '<strong>Total: $' . $cart->getTotal() . '</strong>';
-                } else {
-                    echo '<p>No records in the cart.</p>';
-                }
+                // // Retrieve items from the cart
+                // $items = $cart->getItems();
+                // if (!$cart->isEmpty()) {
+                //     echo '<ul>';
+                //     foreach ($items as $item) {
+                //         $product = $item['product']; // $product is an instance of Product
+                //         echo '<li>';
+                //         echo 'Title: ' . htmlspecialchars($product->getTitle()) . '<br>';
+                //         echo 'Quantity: ' . htmlspecialchars($product->getQty()) . '<br>';
+                //         echo 'Price per item: $' . htmlspecialchars($product->getPrice()) . '<br>';
+                //         echo 'Total cost for this item: $' . htmlspecialchars($product->get_product_cost()) . '<br>';
+                //         echo '</li>';
+                //     }
+                //     echo '</ul>';
+                //     echo '<strong>Total: $' . $cart->getTotal() . '</strong>';
+                // } else {
+                //     echo '<p>No records in the cart.</p>';
+                // }
                 ?>
 
             </div>

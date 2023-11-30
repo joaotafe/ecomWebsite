@@ -5,10 +5,12 @@ include 'cart.php';
 session_start();
 
 
-
+$cart = new ShoppingCart();
 // Initialize ShoppingCart object in the session if it's not set
 if (!isset($_SESSION['shopping_cart'])) {
-    $_SESSION['shopping_cart'] = new ShoppingCart();
+    $cart = unserialize($_SESSION['shopping_cart']);
+}else{
+    $_SESSION['shopping_cart'] = "";
 }
 
 // Check if the add to cart button has been submitted
@@ -33,9 +35,12 @@ if (isset($_POST['add_to_cart'])) {
 
         // Create a new Product object
         $product = new Product($recordID, $title, $price, $quantity);
+        $cart->addProduct($product);
+        //print_r($cart);
 
         // Add the product to the cart
-        $_SESSION['shopping_cart']->addProduct($product);
+        $_SESSION['shopping_cart']=serialize($cart);
+
     } else {
         // Handle the case where the product doesn't exist in the database
         echo "Product with ID $recordID not found.";
@@ -46,9 +51,9 @@ if (isset($_POST['add_to_cart'])) {
     $stmt->close();
     $mysqli->close();
 
-    // Redirect back to the product page or shopping cart page
-    header("test.php");
-    exit();
+    //Redirect back to the product page or shopping cart page
+    echo"<p><b> <a href=view_cart.php>Checkout </a> </b></p>";
+//    exit();
 } else {
     // Redirect to home page or show an error if the form wasn't submitted correctly
     header("Location: index.php");
