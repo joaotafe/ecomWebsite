@@ -27,15 +27,15 @@ img{
 background-color: rgb(43.9%,88.6%,85.1%);
 }
 
-
-
-
-
-
-
-
-
-
+.add-to-cart-btn {
+  font-size: 20px;
+  color: white;
+  background-color: green;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  border-radius: 50%;
+}
 
 
 

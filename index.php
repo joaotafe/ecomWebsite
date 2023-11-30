@@ -1,3 +1,7 @@
+<?php
+session_start();
+include "cart.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -28,7 +32,7 @@
                 <!-- OFF canvas menu -->
                 <div class="offcanvas offcanvas-end text-bg-light" tabindex="-1" id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-header">
-                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Dark offcanvas</h5>
+                        <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Welcome</h5>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                     </div>
                     <div class="offcanvas-body text-bg-light">
@@ -85,229 +89,112 @@
                 </div>
             </div>
         </div>
-
-
-
-
-
-        <!-- Register Modal FORM
-        <form method="post" action="">
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-scrollable">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="staticBackdropLabel">Please, register with us!</h1>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    
-                        <div class="modal-body">
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="regGivName" name="regGivName" value="<?php echo $givName;?>" placeholder="Enter name">
-                                <label for="regGivName">Given Name</label><span class="error-message">* <?php echo $errGivName; ?></span>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="text" class="form-control" id="regFamName" name="regFamName" value="<?php echo $famName;?>" placeholder="Enter family name">
-                                <label for="regFamName">Family Name</label><span class="error-message">* <?php echo $errFamName; ?></span>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="date" class="form-control" id="regDateOfBirth" name="regDateOfBirth" value="<?php echo $dateOfBirth;?>" placeholder="Enter date of birth">
-                                <label for="regDateOfBirth">Date of birth</label><span class="error-message">* <?php echo $errDateOfBirth; ?></span>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input type="email" class="form-control" id="regEmail" name="regEmail" value="<?php echo $email;?>" placeholder="name@example.com">
-                                <label for="regEmail">Email address</label><span class="error-message">* <?php echo $errEmail; ?></span>
-                            </div>
-                            <div class="form-floating">
-                                <input type="password" class="form-control" id="regPassword" name="regPassword"  placeholder="Password">
-                                <label for="regPassword">Password</label><span class="error-message">* <?php echo $errPassword;?></span>
-                            </div>
-
-                        </div>
-                        <div class="modal-footer">
-                            <button type="reset" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-secondary">Register</button>
-                        </div>
-                    
-                </div>
-            </div>
-        </div>
-        </form> -->
-
+        <?php include "fetch_record.php"; ?>
 
         <div class="display">
             <div class="row">
                 <div class="col-md-1 bg-primary-subtle">
-                    <!-- SIDE NAV BAR -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
+                    <!-- SIDE NAVIGATION BAR -->
+                    <!-- Your sidebar content here -->
                 </div>
-                <div class="col-md-11">
-                    <!-- DISPLAY OF PRODUCTS -->
+                <div class="col-md-10">
+                    <!-- DISPLAY OF RECORDS -->
                     <div class="row">
-                        <div class="col-md-3 p-1">
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="flip-card-front">
-                                        <img src="./images/nina.png" alt="Avatar">
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <h1>Name of Album</h1>
-                                        <p>When it was released</p>
-                                        <p>More info</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-1">
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="flip-card-front">
-                                        <img src="./images/beatles.png" alt="Avatar" style="width:300px;height:300px;">
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <h1>Name of Album</h1>
-                                        <p>When it was released</p>
-                                        <p>More info</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-1">
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="flip-card-front">
-                                        <img src="./images/travis.png" alt="Avatar" style="width:300px;height:300px;">
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <h1>Name of Album</h1>
-                                        <p>When it was released</p>
-                                        <p>More info</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-1">
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="flip-card-front">
-                                        <img src="./images/nirvana.png" alt="Avatar" style="width:300px;height:300px;">
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <h1>Name of Album</h1>
-                                        <p>When it was released</p>
-                                        <p>More info</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-3 p-1">
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="flip-card-front">
-                                        <img src="./images/nina.png" alt="Avatar">
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <h1>Name of Album</h1>
-                                        <p>When it was released</p>
-                                        <p>More info</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-1">
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="flip-card-front">
-                                        <img src="./images/beatles.png" alt="Avatar" style="width:300px;height:300px;">
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <h1>Name of Album</h1>
-                                        <p>When it was released</p>
-                                        <p>More info</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-1">
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="flip-card-front">
-                                        <img src="./images/travis.png" alt="Avatar" style="width:300px;height:300px;">
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <h1>Name of Album</h1>
-                                        <p>When it was released</p>
-                                        <p>More info</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-3 p-1">
-                            <div class="flip-card">
-                                <div class="flip-card-inner">
-                                    <div class="flip-card-front">
-                                        <img src="./images/jimi.png" alt="Avatar" style="width:300px;height:300px;">
-                                    </div>
-                                    <div class="flip-card-back">
-                                        <h1>Name of Album</h1>
-                                        <p>When it was released</p>
-                                        <p>More info</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php
+                        $records = fetchRecords();
+                        if (count($records) > 0) {
+                            foreach ($records as $record) {
+                                echo '<div class="col-md-3">';
+                                echo '<div class="flip-card">';
+                                echo '<div class="flip-card-inner">';
+
+                                echo '<div class="flip-card-front">';
+                                echo '<img src="' . $record["recordCover"] . '" alt="' . $record["title"] . '" style="width:300px;height:300px;">';
+                                echo '</div>';
+
+                                echo '<div class="flip-card-back">';
+                                echo '<h5>' . $record["title"] . '</h5>';
+                                echo '<p>Artist: ' . $record["artist"] . '</p>';
+                                echo '<p>' . ($record["secondHand"] ? 'Second Hand' : 'New') . '</p>';
+                                echo '<p>Price: $' . $record["price"] . '</p>';
+
+                                // Hidden recordID
+                                echo '<div style="display:none;">Record ID: ' . $record["recordID"] . '</div>';
+
+                                // Add to cart form
+                                echo '<form action="add_shopping_cart.php" method="post">';
+                                echo '<input type="hidden" name="recordID" value="' . $record["recordID"] . '">';
+                                echo '<input type="hidden" name="quantity" value="1">';  // Assuming adding one item at a time
+                                echo '<button type="submit" name="add_to_cart" class="add-to-cart-btn">+</button>';
+                                echo '</form>';
+
+                                echo '</div>';
+
+                                echo '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
+                        } else {
+                            echo '<div class="col-12"><p>No records found.</p></div>';
+                        }
+                        ?>
                     </div>
                 </div>
-                <!-- <div class="col-md-1 bg-secondary p-0">
-
-                </div> -->
             </div>
-
-            <!-- CART WINDOW IS OFF CANVAS -->
-            <div class="position-absolute top-50 start-0 translate-middle-y">
-                <img type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" class="cart" src="./images/cart.png" alt="Shopping Cart">
-            </div>
-
-            <!-- SHOPPING CART OFF CANVAS  -->
-            <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
-                <div class="offcanvas-header">
-                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Shopping Cart</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="offcanvas-body">
-                    <p>Try scrolling the rest of the page to see this option in action.</p>
-                </div>
-            </div>
-
         </div>
 
-        <div class="p-3 text-center">
-            <p>All Rights Reserved©- Designed by Luca Souza - 2023</p>
+        <!-- CART WINDOW IS OFF CANVAS -->
+        <div class="position-absolute top-50 start-0 translate-middle-y">
+            <img type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" class="cart" src="./images/cart.png" alt="Shopping Cart">
         </div>
+
+        <!-- SHOPPING CART OFF CANVAS -->
+        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Shopping Cart</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+                <?php
+                // Assuming the ShoppingCart class has already been included and session started
+                if (!isset($_SESSION['shopping_cart'])) {
+                    $_SESSION['shopping_cart'] = new ShoppingCart();
+                }
+
+                // Check if the shopping cart has items
+                $cart = $_SESSION['shopping_cart'];
+
+                // Retrieve items from the cart
+                $items = $cart->getItems();
+                if (!$cart->isEmpty()) {
+                    echo '<ul>';
+                    foreach ($items as $item) {
+                        $product = $item['product']; // $product is an instance of Product
+                        echo '<li>';
+                        echo 'Title: ' . htmlspecialchars($product->getTitle()) . '<br>';
+                        echo 'Quantity: ' . htmlspecialchars($product->getQty()) . '<br>';
+                        echo 'Price per item: $' . htmlspecialchars($product->getPrice()) . '<br>';
+                        echo 'Total cost for this item: $' . htmlspecialchars($product->get_product_cost()) . '<br>';
+                        echo '</li>';
+                    }
+                    echo '</ul>';
+                    echo '<strong>Total: $' . $cart->getTotal() . '</strong>';
+                } else {
+                    echo '<p>No records in the cart.</p>';
+                }
+                ?>
+
+            </div>
+        </div>
+
 
     </div>
-    <!-- <script>
-        document.querySelector("form").addEventListener("submit", function(event) {
-            const inputs = document.querySelectorAll("input[id^='reg']");
-            for (const input of inputs) {
-                const inputId = input.id;
-                const errorDiv = document.getElementById("error-" + inputId);
-                if (errorDiv) {
-                    errorDiv.textContent = ""; // Clear previous error message
-                    errorDiv.style.display = "none"; // Hide the error message
 
-                    if (input.value.trim() === "") {
-                        errorDiv.textContent = "Field is required.";
-                        errorDiv.style.display = "block";
-                        event.preventDefault(); // Prevent form submission
-                    }
-                }
-            }
-        });
-    </script> -->
+    <div class="p-3 text-center">
+        <p>All Rights Reserved©- Designed by Luca Souza - 2023</p>
+    </div>
+
+    </div>
     <!-- JS Bootstrap link -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>

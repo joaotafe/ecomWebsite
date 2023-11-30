@@ -2,7 +2,8 @@
 session_start(); // Start a new session
 
 // Include database connection
-$conn = mysqli_connect("localhost:3308", "root", "", "recordplayerdb");
+ // Database credentials
+ require_once("recordplayerdb_conn.php");
 
 // Check if the form data is set
 if (isset($_POST['signInEmail']) && isset($_POST['signInPassword'])) {
@@ -10,7 +11,7 @@ if (isset($_POST['signInEmail']) && isset($_POST['signInPassword'])) {
     $password = $_POST['signInPassword'];
 
     // Prepare a SELECT statement to fetch the user with the given email
-    $stmt = $conn->prepare("SELECT * FROM customer WHERE email = ?");
+    $stmt = $mysqli->prepare("SELECT * FROM customer WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     
@@ -24,7 +25,7 @@ if (isset($_POST['signInEmail']) && isset($_POST['signInPassword'])) {
             $_SESSION['user_id'] = $user['customerID'];
             $_SESSION['email'] = $user['email'];
             // Redirect to a logged-in page or dashboard
-            header("Location: index.php");
+            header("Location: member.php");
             exit();
         } else {
             // Invalid password
@@ -41,5 +42,5 @@ if (isset($_POST['signInEmail']) && isset($_POST['signInPassword'])) {
     echo "Please fill in all fields. <a href='index.php'>Go back</a>";
 }
 
-$conn->close();
+$mysqli->close();
 ?>

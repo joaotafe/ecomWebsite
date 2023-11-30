@@ -1,11 +1,12 @@
  <?php
-  $conn = mysqli_connect("localhost:3308", "root", "", "recordplayerdb");
+   // Database credentials
+   require_once("recordplayerdb_conn.php");
   // Check if the form was submitted
   // Hash the password before storing it
   $hashedPassword = password_hash($_POST['regPassword'], PASSWORD_DEFAULT);
 
   // Prepare an INSERT statement
-  $stmt = $conn->prepare("INSERT INTO customer (givenName, familyName, email, password) VALUES (?, ?, ?, ?)");
+  $stmt = $mysqli->prepare("INSERT INTO customer (givenName, familyName, email, password) VALUES (?, ?, ?, ?)");
 
   // Bind parameters (s for string)
   $stmt->bind_param("ssss", $givName, $famName, $email, $hashedPassword);
