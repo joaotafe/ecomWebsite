@@ -7,7 +7,7 @@ session_start();
 
 $cart = new ShoppingCart();
 // Initialize ShoppingCart object in the session if it's not set
-if (!isset($_SESSION['shopping_cart'])) {
+if (isset($_SESSION['shopping_cart'])) {
     $cart = unserialize($_SESSION['shopping_cart']);
 }else{
     $_SESSION['shopping_cart'] = "";

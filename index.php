@@ -1,5 +1,5 @@
 <?php
-// session_start();
+session_start();
 include "cart.php";
 ?>
 <!DOCTYPE html>
@@ -154,17 +154,17 @@ include "cart.php";
 
 
         <!-- CART WINDOW IS OFF CANVAS -->
-        <div class="position-absolute top-50 start-0 translate-middle-y">
+        <!-- <div class="position-absolute top-50 start-0 translate-middle-y">
             <img type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" class="cart" src="./images/cart.png" alt="Shopping Cart">
-        </div>
+        </div> -->
 
         <!-- SHOPPING CART OFF CANVAS -->
-        <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
+        <!-- <div class="offcanvas offcanvas-start" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
             <div class="offcanvas-header">
                 <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Shopping Cart</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
-            <div class="offcanvas-body">
+            <div class="offcanvas-body"> -->
                 <?php
                 // Assuming the ShoppingCart class has already been included and session started
                 // if (!isset($_SESSION['shopping_cart'])) {
@@ -196,8 +196,8 @@ include "cart.php";
                 // }
                 ?>
 
-            </div>
-        </div>
+            <!-- </div>
+        </div> -->
 
 
     </div>

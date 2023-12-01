@@ -25,7 +25,7 @@ if (isset($_POST['signInEmail']) && isset($_POST['signInPassword'])) {
             $_SESSION['user_id'] = $user['customerID'];
             $_SESSION['email'] = $user['email'];
             // Redirect to a logged-in page or dashboard
-            header("Location: member.php");
+            header("Location: index.php");
             exit();
         } else {
             // Invalid password
