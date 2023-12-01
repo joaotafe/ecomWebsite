@@ -13,7 +13,7 @@ $counter= $_SESSION['shopping_cart'];
 //check whether the cart is empty or not
 
     $cart = unserialize($_SESSION['shopping_cart']);
-    print_r($cart);
+    //print_r($cart);
     $depth = $cart->get_depth();
   
     //Get the depth of the cart

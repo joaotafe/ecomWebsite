@@ -52,8 +52,8 @@ if (isset($_POST['add_to_cart'])) {
     $mysqli->close();
 
     //Redirect back to the product page or shopping cart page
-    echo"<p><b> <a href=view_cart.php>Checkout </a> </b></p>";
-//    exit();
+    header("Location: view_cart.php");
+    exit();
 } else {
     // Redirect to home page or show an error if the form wasn't submitted correctly
     header("Location: index.php");
