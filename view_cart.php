@@ -20,7 +20,7 @@ $counter= $_SESSION['shopping_cart'];
 	
     echo"<h1>Shopping Cart</h1>";
     echo "<table border=1>";
-    echo"<tr><td><b>product Name</b></td><td><b>Quantity</b></td><td><b> Price</b></td></tr>";
+    echo"<tr><td><b>Product Name</b></td><td><b>Price</b></td><td><b>Quantity</b></td></tr>";
 	//Use a for loop to Iterate through the cart
     for ($i=0; $i < $depth; $i++) {
         $product = $cart->getProduct($i);

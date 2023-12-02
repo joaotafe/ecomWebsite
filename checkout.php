@@ -13,7 +13,7 @@ else {
     $depth = $cart->get_depth();
     echo"<h1>Shopping Cart</h1>";
     echo "<table border=1>";
-    echo"<tr><td><b>Product Name</b></td><td><b>Quantity</b></td><td><b> Price</b></td></tr>";
+    echo"<tr><td><b>Product Name</b></td><td><b>Quantity</b></td><td><b>Price</b></td></tr>";
 	//Use a for loop to Iterate through the cart
     for ($i = 0; $i < $depth; $i++) {
         $product = $cart->getProduct($i);
@@ -23,15 +23,15 @@ else {
 		$unit_price = $product->getPrice();
 		//Calculate the total price
 		$total_price = $total_price + $unit_price*$qty;
-		echo"<tr><td>$product_name</td><td>$qty </td><td>$unit_price</td></tr>";
+		echo"<tr><td>$product_name</td><td>$unit_price </td><td>$$qty</td></tr>";
         }
     
    //Display the total price
     $_SESSION['total_price'] = $total_price;
-    echo"<tr><td><b> Total </b></td><td>&nbsp;</td><td><b>$total_price</b></td></tr>";
+    echo"<tr><td><b> Total </b></td><td>&nbsp;</td><td>$<b>$total_price</b></td></tr>";
     echo "</table>";
     echo"<p><b> <a href=view_cart.php>Remove prices from the Cart </a> </b></p>";
-    echo"<p><b> <a href=payments.php>Proceed with Payments</a> </b></p>";
+    echo"<p><b> <a href=payment.php>Proceed with Payments</a> </b></p>";
     echo"<p><b> <a href=products.php>Go back to products </a> </b></p>";
 }
 ?>
