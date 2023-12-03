@@ -1,5 +1,6 @@
 <?php
 //Start the session
+
 session_start();
 include 'cart.php';
 $cart = new ShoppingCart();
@@ -28,10 +29,12 @@ $counter= $_SESSION['shopping_cart'];
 		$product_name = $product->getTitle();
 		$qty = $product->getQty();
 		$unit_price = $product->getPrice();
-		echo "<tr><form  action=remove_from_cart.php method=POST>";
-		echo"<td>$product_name</td><td>$qty </td><td>$unit_price</td>";
-		echo "<td> <input name= product_no type=checkbox id= product_no value=$i></td>";
-		echo"<td><INPUT  name=remove TYPE=submit id=remove value=Remove></td>";
+		echo "<tr><form  action=remove_from_cart.php method= POST>";
+		echo"<td>$product_name</td>
+        <td>$qty </td>
+        <td>$unit_price</td>";
+		echo "<td> <input name= index type=checkbox id= index value=$i></td>";
+		echo"<td><input  name=remove TYPE=submit id=remove value=remove></td>";
 		echo "</tr></form>";
         
     }
